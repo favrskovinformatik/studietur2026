@@ -1,1 +1,359 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studietur til Wien 2026</title>
+    
+    <!-- PWA / Mobil App Konfiguration -->
+    <meta name="apple-mobile-web-app-title" content="Studietur">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1e3a8a">
 
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --accent: #f59e0b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 12px;
+            line-height: 1.5;
+            padding-bottom: 40px;
+        }
+
+        /* Hero / Header */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 24px 16px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            margin: 6px 0 0 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Hurtige Navigationsknapper */
+        .quick-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .quick-nav a {
+            background: var(--card-bg);
+            color: var(--primary);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* Kort / Sektioner */
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            color: var(--primary-light);
+            margin: 14px 0 6px 0;
+        }
+
+        /* Lister og Tidsplan */
+        ul {
+            padding-left: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 0.95rem;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .time {
+            font-weight: 700;
+            color: var(--primary-light);
+            display: inline-block;
+            min-width: 50px;
+        }
+
+        /* Fremhævninger / Boks-noter */
+        .alert {
+            background-color: #fef3c7;
+            border-left: 4px solid var(--accent);
+            color: #92400e;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+
+        .badge {
+            background-color: #e0e7ff;
+            color: var(--primary);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-left: 6px;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .grid-item {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border: 1px solid #edf2f7;
+        }
+
+        .grid-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Studietur 2026</h1>
+        <p>Wien & Bratislava | 6. – 12. September</p>
+    </div>
+
+    <!-- Hurtig-navigation -->
+    <div class="quick-nav">
+        <a href="#rejse">🚆 Transport</a>
+        <a href="#hotel">🏨 Hotel & Værelser</a>
+        <a href="#program">📅 Program</a>
+    </div>
+
+    <!-- REJSEINFO -->
+    <div class="card" id="rejse">
+        <h2>🚆 Udrejse & Hjemrejse</h2>
+        
+        <h3>Søndag d. 6/9 (Udrejse)</h3>
+        <ul>
+            <li><span class="time">14:24</span> Afgang Hadsten (IC 4148 mod Esbjerg)</li>
+            <li><span class="time">14:50</span> Afgang Aarhus H (Spor 5)</li>
+            <li><span class="time">16:04</span> Ankomst Kolding</li>
+            <li><span class="time">16:15</span> Afgang Kolding ➔ Ankomst Hamburg 19:01</li>
+            <li><span class="time">20:10</span> Afgang Hamburg ➔ Ankomst Wien (Nattog)</li>
+        </ul>
+
+        <h3>Lørdag d. 12/9 (Hjemrejse)</h3>
+        <ul>
+            <li><span class="time">05:10</span> Afgang Wien ➔ Ankomst Prag 09:23</li>
+            <li><span class="time">10:31</span> Afgang Prag ➔ Ankomst Kolding 19:44</li>
+            <li><span class="time">19:53</span> Afgang Kolding ➔ Ankomst Aarhus H 21:08</li>
+            <li><span class="time">21:45</span> Afgang Aarhus H ➔ Ankomst Hadsten 22:01</li>
+        </ul>
+
+        <h3>🛌 Liggepladser i toget</h3>
+        <div class="grid-list">
+            <div class="grid-item">Alberte, Bager, Frederikke, Ida</div>
+            <div class="grid-item">Olivia, Silje, Vigga, Mathilde</div>
+            <div class="grid-item">Karl, Hjeds, Frederik, Løber</div>
+            <div class="grid-item">Andreas, Felix, Josias, Thomas</div>
+            <div class="grid-item">Bugslag, Bror, Julius, Jens</div>
+            <div class="grid-item">Kruse, Jeppe, Hellemann, Rasmus</div>
+            <div class="grid-item">Will, Oliver, Christian NP (3 pers.)</div>
+        </div>
+    </div>
+
+    <!-- HOTEL OG REGLER -->
+    <div class="card" id="hotel">
+        <h2>🏨 Indkvartering</h2>
+        <p><strong>Wombat's City Hostel Vienna Naschmarkt</strong><br>
+        Rechte Wienzeile 35, A-1040 Wien</p>
+
+        <div class="alert">
+            📌 <strong>Husregler:</strong>
+            <ul style="margin-top: 5px;">
+                <li>Overhold de aftalte morgenmadstider.</li>
+                <li>Ro på hotellet samt foran hotellet mellem kl. 22:00 og 07:00.</li>
+            </ul>
+        </div>
+
+        <h3>🛏️ Værelsesfordeling</h3>
+        <div class="grid-list">
+            <div class="grid-item">
+                <strong>Pigeværelse 1 (4 pers.)</strong>
+                Alberte, Bager, Frederikke, Ida
+            </div>
+            <div class="grid-item">
+                <strong>Pigeværelse 2 (4 pers.)</strong>
+                Olivia, Silje, Vigga, Mathilde
+            </div>
+            <div class="grid-item">
+                <strong>Drengeværelse 1 (6 pers.)</strong>
+                Hellemann, Karl, Hjeds, Andreas, Rasmus, Felix
+            </div>
+            <div class="grid-item">
+                <strong>Drengeværelse 2 (6 pers.)</strong>
+                Bugslag, Bror, Kruse, Jeppe, Will, Oliver
+            </div>
+            <div class="grid-item">
+                <strong>Drengeværelse 3 (5 pers.)</strong>
+                Josias, Julius, Christian NP, Frederik, Løber
+            </div>
+        </div>
+    </div>
+
+    <!-- PROGRAM -->
+    <div class="card" id="program">
+        <h2>📅 Program for ugen</h2>
+
+        <!-- SØNDAG -->
+        <h3>Søndag d. 6/9</h3>
+        <ul>
+            <li><span class="time">14:24</span> Afrejse mod Wien</li>
+        </ul>
+
+        <!-- MANDAG -->
+        <h3>Mandag d. 7/9</h3>
+        <ul>
+            <li><span class="time">09:48</span> Ankomst til banegården i Wien</li>
+            <li><span class="time">Formiddag</span> Feltarbejde og sightseeing</li>
+            <li><span class="time">Eft.</span> Besøg på Wiens ældste bibliotek (Gruppe 1 & 2)</li>
+            <li><span class="time">18:00</span> Fri til egen disposition</li>
+        </ul>
+
+        <!-- TIRSDAG -->
+        <h3>Tirsdag d. 8/9 <span class="badge">Bratislava</span></h3>
+        <ul>
+            <li><span class="time">07:00</span> Morgenmad</li>
+            <li><span class="time">07:30</span> Afgang fra hotellet</li>
+            <li><span class="time">08:30</span> Sejlads på Donau m. Twin City Liner</li>
+            <li><span class="time">10:00</span> Ankomst Bratislava – Feltarbejde & sightseeing</li>
+            <li><span class="time">Formiddag</span> Museum m. spejle og lys (50 kr.) ELLER Freedom Square (Gruppe 3)</li>
+            <li><span class="time">Eft.</span> Oplæg på Bratislava Policy Institute</li>
+            <li><span class="time">18:30</span> Sejlads retur til Wien</li>
+            <li><span class="time">20:00</span> Ankomst Wien + Fri</li>
+        </ul>
+
+        <!-- ONSDAG -->
+        <h3>Onsdag d. 9/9</h3>
+        <ul>
+            <li><span class="time">08:00</span> Morgenmad</li>
+            <li><span class="time">09:00</span> Afgang fra hotellet</li>
+            <li><span class="time">10:00</span> Austrian Cooking (Schnitzel & Strudel) på <em>Die Pause</em></li>
+            <li><span class="time">Eft.</span> Battlekart Wien (24 euro) (Gruppe 6 & 7)</li>
+            <li><span class="time">17:00</span> Fællesspisning på Naschmarkt (Egen betaling)</li>
+            <li><span class="time">18:00</span> Gåtur mod Wiener Staatsoper</li>
+            <li><span class="time">19:00</span> Opera: <em>Figaros Bryllup</em> (til kl. 22:00)</li>
+        </ul>
+        <div class="alert">⚠️ Pæn påklædning er påkrævet i operaen!</div>
+
+        <!-- TORSDAG -->
+        <h3>Torsdag d. 10/9</h3>
+        <ul>
+            <li><span class="time">08:00</span> Morgenmad</li>
+            <li><span class="time">09:00</span> Afgang fra hotellet</li>
+            <li><span class="time">09:30</span> Der Schlosspark Schönbrunn</li>
+            <li><span class="time">10:00</span> Schloss Schönbrunn (State Apartments / Die Zeremonialräume)</li>
+            <li><span class="time">14:30</span> Rundvisning & prøvesmagning på Ottakringer Brauerei</li>
+            <li><span class="time">Eft.</span> Besøg og spas i forlystelsesparken Prater</li>
+            <li><span class="time">20:45</span> Evt. Sportsbar (Man U vs. AGFs bødler)</li>
+        </ul>
+
+        <!-- FREDAG -->
+        <h3>Fredag d. 11/9</h3>
+        <ul>
+            <li><span class="time">08:00</span> Morgenmad</li>
+            <li><span class="time">Formiddag</span> Fri / Shopping på Mariahilfer Strasse</li>
+            <li><span class="time">12:00</span> Afgang til gåtur i Wien m. Thomas & Jens (Valgfrit)</li>
+            <li><span class="time">13:30</span> Rundvisning ved FNs hovedkvarter (13:30 - 14:30)</li>
+            <li><span class="time">Eft.</span> Donauturm rutsjebane (~6 euro) (Gruppe 4 & 5)</li>
+            <li><span class="time">Eft.</span> Evt. sejlads/vandcykler på Alte Donau (Eppel/Kuklas)</li>
+            <li><span class="time">Aften</span> Fællesspisning v. Alte Donau (Egen betaling)</li>
+        </ul>
+        <div class="alert" style="background-color: #fee2e2; border-color: #ef4444; color: #991b1b;">
+            🚫 Ingen bytur i aften!
+        </div>
+
+        <!-- LØRDAG -->
+        <h3>Lørdag d. 12/9</h3>
+        <ul>
+            <li><span class="time">04:00</span> Vækning! (Ingen morgenmad på hotellet)</li>
+            <li><span class="time">05:10</span> Afgang med toget fra banegården mod Danmark</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Studietur Program • Opdateret for mobil</p>
+    </footer>
+
+</body>
+</html>
