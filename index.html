@@ -111,6 +111,30 @@
             margin: 14px 0 6px 0;
         }
 
+        /* Fold-ud elementer (details) */
+        details {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        summary {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            cursor: pointer;
+            list-style-position: inside;
+        }
+
+        details[open] summary {
+            margin-bottom: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
         /* Lister og Tidsplan */
         ul {
             padding-left: 0;
@@ -194,42 +218,10 @@
 
     <!-- Hurtig-navigation -->
     <div class="quick-nav">
-        <a href="#rejse">🚆 Transport</a>
         <a href="#hotel">🏨 Hotel & Værelser</a>
         <a href="#program">📅 Program</a>
-    </div>
-
-    <!-- REJSEINFO -->
-    <div class="card" id="rejse">
-        <h2>🚆 Udrejse & Hjemrejse</h2>
-        
-        <h3>Søndag d. 6/9 (Udrejse)</h3>
-        <ul>
-            <li><span class="time">14:24</span> Afgang Hadsten (IC 4148 mod Esbjerg)</li>
-            <li><span class="time">14:50</span> Afgang Aarhus H (Spor 5)</li>
-            <li><span class="time">16:04</span> Ankomst Kolding</li>
-            <li><span class="time">16:15</span> Afgang Kolding ➔ Ankomst Hamburg 19:01</li>
-            <li><span class="time">20:10</span> Afgang Hamburg ➔ Ankomst Wien (Nattog)</li>
-        </ul>
-
-        <h3>Lørdag d. 12/9 (Hjemrejse)</h3>
-        <ul>
-            <li><span class="time">05:10</span> Afgang Wien ➔ Ankomst Prag 09:23</li>
-            <li><span class="time">10:31</span> Afgang Prag ➔ Ankomst Kolding 19:44</li>
-            <li><span class="time">19:53</span> Afgang Kolding ➔ Ankomst Aarhus H 21:08</li>
-            <li><span class="time">21:45</span> Afgang Aarhus H ➔ Ankomst Hadsten 22:01</li>
-        </ul>
-
-        <h3>🛌 Liggepladser i toget</h3>
-        <div class="grid-list">
-            <div class="grid-item">Alberte, Bager, Frederikke, Ida</div>
-            <div class="grid-item">Olivia, Silje, Vigga, Mathilde</div>
-            <div class="grid-item">Karl, Hjeds, Frederik, Løber</div>
-            <div class="grid-item">Andreas, Felix, Josias, Thomas</div>
-            <div class="grid-item">Bugslag, Bror, Julius, Jens</div>
-            <div class="grid-item">Kruse, Jeppe, Hellemann, Rasmus</div>
-            <div class="grid-item">Will, Oliver, Christian NP (3 pers.)</div>
-        </div>
+        <a href="#udrejse">🚆 Udrejse</a>
+        <a href="#hjemrejse">🚆 Hjemrejse</a>
     </div>
 
     <!-- HOTEL OG REGLER -->
@@ -271,85 +263,148 @@
         </div>
     </div>
 
-    <!-- PROGRAM -->
+
+    <!-- ================= START: UDREJSE (SLET EFTER ANKOMST) ================= -->
+    <details id="udrejse">
+        <summary>🚆 Udrejse (Søndag d. 6/9)</summary>
+        
+        <h3>Togafgange</h3>
+        <ul>
+            <li><span class="time">14:24</span> Afgang Hadsten (IC 4148 mod Esbjerg)</li>
+            <li><span class="time">14:50</span> Afgang Aarhus H (Spor 5)</li>
+            <li><span class="time">16:04</span> Ankomst Kolding</li>
+            <li><span class="time">16:15</span> Afgang Kolding ➔ Ankomst Hamburg 19:01</li>
+            <li><span class="time">20:10</span> Afgang Hamburg ➔ Ankomst Wien 09:48 (Nattog)</li>
+        </ul>
+
+        <h3>🛌 Liggepladser i toget</h3>
+        <div class="grid-list">
+            <div class="grid-item">Alberte, Bager, Frederikke, Ida</div>
+            <div class="grid-item">Olivia, Silje, Vigga, Mathilde</div>
+            <div class="grid-item">Karl, Hjeds, Frederik, Løber</div>
+            <div class="grid-item">Andreas, Felix, Josias, Thomas</div>
+            <div class="grid-item">Bugslag, Bror, Julius, Jens</div>
+            <div class="grid-item">Kruse, Jeppe, Hellemann, Rasmus</div>
+            <div class="grid-item">Will, Oliver, Christian NP (3 pers.)</div>
+        </div>
+    </details>
+    <!-- ================= SLUT: UDREJSE ================= -->
+
+
+    <!-- PROGRAM SEKTION -->
     <div class="card" id="program">
         <h2>📅 Program for ugen</h2>
 
-        <!-- SØNDAG -->
+        <!-- ================= START: SØNDAG 6/9 ================= -->
         <h3>Søndag d. 6/9</h3>
         <ul>
-            <li><span class="time">14:24</span> Afrejse mod Wien</li>
+            <li><span class="time">14:24</span> Vi tager afsted! (Se detaljer under Udrejse)</li>
         </ul>
+        <!-- ================= SLUT: SØNDAG 6/9 ================= -->
 
-        <!-- MANDAG -->
-        <h3>Mandag d. 7/9</h3>
-        <ul>
-            <li><span class="time">09:48</span> Ankomst til banegården i Wien</li>
-            <li><span class="time">Formiddag</span> Feltarbejde og sightseeing</li>
-            <li><span class="time">Eft.</span> Besøg på Wiens ældste bibliotek (Gruppe 1 & 2)</li>
-            <li><span class="time">18:00</span> Fri til egen disposition</li>
-        </ul>
 
-        <!-- TIRSDAG -->
-        <h3>Tirsdag d. 8/9 <span class="badge">Bratislava</span></h3>
-        <ul>
-            <li><span class="time">07:00</span> Morgenmad</li>
-            <li><span class="time">07:30</span> Afgang fra hotellet</li>
-            <li><span class="time">08:30</span> Sejlads på Donau m. Twin City Liner</li>
-            <li><span class="time">10:00</span> Ankomst Bratislava – Feltarbejde & sightseeing</li>
-            <li><span class="time">Formiddag</span> Museum m. spejle og lys (50 kr.) ELLER Freedom Square (Gruppe 3)</li>
-            <li><span class="time">Eft.</span> Oplæg på Bratislava Policy Institute</li>
-            <li><span class="time">18:30</span> Sejlads retur til Wien</li>
-            <li><span class="time">20:00</span> Ankomst Wien + Fri</li>
-        </ul>
+        <!-- ================= START: MANDAG 7/9 ================= -->
+        <div style="margin-top: 20px;">
+            <h3>Mandag d. 7/9</h3>
+            <ul>
+                <li><span class="time">09:48</span> Ankomst til banegården i Wien</li>
+                <li><span class="time">Eft.</span> Feltarbejde og sightseeing i Wien</li>
+                <li><span class="time">Eft.</span> Besøg på Wiens ældste bibliotek (Gruppe 1 & 2)</li>
+                <li><span class="time">18:00</span> Fri fra ca. kl. 18:00</li>
+            </ul>
+        </div>
+        <!-- ================= SLUT: MANDAG 7/9 ================= -->
 
-        <!-- ONSDAG -->
-        <h3>Onsdag d. 9/9</h3>
-        <ul>
-            <li><span class="time">08:00</span> Morgenmad</li>
-            <li><span class="time">09:00</span> Afgang fra hotellet</li>
-            <li><span class="time">10:00</span> Austrian Cooking (Schnitzel & Strudel) på <em>Die Pause</em></li>
-            <li><span class="time">Eft.</span> Battlekart Wien (24 euro) (Gruppe 6 & 7)</li>
-            <li><span class="time">17:00</span> Fællesspisning på Naschmarkt (Egen betaling)</li>
-            <li><span class="time">18:00</span> Gåtur mod Wiener Staatsoper</li>
-            <li><span class="time">19:00</span> Opera: <em>Figaros Bryllup</em> (til kl. 22:00)</li>
-        </ul>
-        <div class="alert">⚠️ Pæn påklædning er påkrævet i operaen!</div>
 
-        <!-- TORSDAG -->
-        <h3>Torsdag d. 10/9</h3>
-        <ul>
-            <li><span class="time">08:00</span> Morgenmad</li>
-            <li><span class="time">09:00</span> Afgang fra hotellet</li>
-            <li><span class="time">09:30</span> Der Schlosspark Schönbrunn</li>
-            <li><span class="time">10:00</span> Schloss Schönbrunn (State Apartments / Die Zeremonialräume)</li>
-            <li><span class="time">14:30</span> Rundvisning & prøvesmagning på Ottakringer Brauerei</li>
-            <li><span class="time">Eft.</span> Besøg og spas i forlystelsesparken Prater</li>
-            <li><span class="time">20:45</span> Evt. Sportsbar (Man U vs. AGFs bødler)</li>
-        </ul>
+        <!-- ================= START: TIRSDAG 8/9 ================= -->
+        <div style="margin-top: 20px;">
+            <h3>Tirsdag d. 8/9 <span class="badge">Bratislava</span></h3>
+            <ul>
+                <li><span class="time">07:00</span> Morgenmad</li>
+                <li><span class="time">07:30</span> Afgang fra hotellet</li>
+                <li><span class="time">08:30</span> Sejlads på Donau m. Twin City Liner</li>
+                <li><span class="time">10:00</span> Ankomst Bratislava – Feltarbejde & sightseeing</li>
+                <li><span class="time">Form.</span> Museum m. spejle/lys (50 kr.) ELLER Freedom Square (Gruppe 3)</li>
+                <li><span class="time">Eft.</span> Oplæg på Bratislava Policy Institute (tidspunkt TBD)</li>
+                <li><span class="time">18:30</span> Sejlads retur mod Wien</li>
+                <li><span class="time">20:00</span> Ankomst Wien + Fri fra kl. 20:00</li>
+            </ul>
+        </div>
+        <!-- ================= SLUT: TIRSDAG 8/9 ================= -->
 
-        <!-- FREDAG -->
-        <h3>Fredag d. 11/9</h3>
-        <ul>
-            <li><span class="time">08:00</span> Morgenmad</li>
-            <li><span class="time">Formiddag</span> Fri / Shopping på Mariahilfer Strasse</li>
-            <li><span class="time">12:00</span> Afgang til gåtur i Wien m. Thomas & Jens (Valgfrit)</li>
-            <li><span class="time">13:30</span> Rundvisning ved FNs hovedkvarter (13:30 - 14:30)</li>
-            <li><span class="time">Eft.</span> Donauturm rutsjebane (~6 euro) (Gruppe 4 & 5)</li>
-            <li><span class="time">Eft.</span> Evt. sejlads/vandcykler på Alte Donau (Eppel/Kuklas)</li>
-            <li><span class="time">Aften</span> Fællesspisning v. Alte Donau (Egen betaling)</li>
-        </ul>
+
+        <!-- ================= START: ONSDAG 9/9 ================= -->
+        <div style="margin-top: 20px;">
+            <h3>Onsdag d. 9/9</h3>
+            <ul>
+                <li><span class="time">08:00</span> Morgenmad</li>
+                <li><span class="time">09:00</span> Afgang fra hotellet</li>
+                <li><span class="time">10:00</span> Austrian Cooking (Schnitzel & Strudel) på <em>Die Pause</em></li>
+                <li><span class="time">Eft.</span> Battlekart Wien (24 euro) (Gruppe 6 & 7)</li>
+                <li><span class="time">17:00</span> Fællesspisning på Naschmarkt (Egen betaling)</li>
+                <li><span class="time">18:00</span> Afgang mod Staatsoper (på gåben)</li>
+                <li><span class="time">19:00</span> Opera: <em>Figaros Bryllup</em> (19:00 - 22:00)</li>
+                <li><span class="time">22:00</span> Fri når operaen er færdig</li>
+            </ul>
+            <div class="alert">⚠️ Pæn påklædning er påkrævet i operaen!</div>
+        </div>
+        <!-- ================= SLUT: ONSDAG 9/9 ================= -->
+
+
+        <!-- ================= START: TORSDAG 10/9 ================= -->
+        <div style="margin-top: 20px;">
+            <h3>Torsdag d. 10/9</h3>
+            <ul>
+                <li><span class="time">08:00</span> Morgenmad</li>
+                <li><span class="time">09:00</span> Afgang fra hotellet</li>
+                <li><span class="time">09:30</span> Der Schlosspark Schönbrunn</li>
+                <li><span class="time">10:00</span> Schloss Schönbrunn (State Apartments / Die Zeremonialräume)</li>
+                <li><span class="time">14:30</span> Rundvisning & prøvesmagning på Ottakringer Brauerei</li>
+                <li><span class="time">Eft.</span> Besøg og spas i forlystelsesparken Prater</li>
+                <li><span class="time">20:45</span> Evt. Sportsbar (Man U vs. AGFs bødler)</li>
+            </ul>
+        </div>
+        <!-- ================= SLUT: TORSDAG 10/9 ================= -->
+
+
+        <!-- ================= START: FREDAG 11/9 ================= -->
+        <div style="margin-top: 20px;">
+            <h3>Fredag d. 11/9</h3>
+            <ul>
+                <li><span class="time">08:00</span> Morgenmad</li>
+                <li><span class="time">12:00</span> Afgang fra hotellet til shopping på Mariahilfer Strasse ELLER gåtur i Wien m. Thomas & Jens</li>
+                <li><span class="time">13:30</span> Rundvisning ved FNs hovedkvarter (13:30 - 14:30)</li>
+                <li><span class="time">Eft.</span> Donauturm rutsjebane (~6 euro) (Gruppe 4 & 5)</li>
+                <li><span class="time">Eft.</span> Evt. sejlads/vandcykler på Alte Donau (Eppel/Kuklas)</li>
+                <li><span class="time">Aften</span> Fællesspisning v. Alte Donau (Egen betaling)</li>
+            </ul>
+            <div class="alert" style="background-color: #fee2e2; border-color: #ef4444; color: #991b1b;">
+                🚫 Ingen bytur i aften!
+            </div>
+        </div>
+        <!-- ================= SLUT: FREDAG 11/9 ================= -->
+
+    </div>
+
+
+    <!-- ================= START: HJEMREJSE (SLET NÅR TUREN ER SLUT) ================= -->
+    <details id="hjemrejse">
+        <summary>🚆 Hjemrejse (Lørdag d. 12/9)</summary>
+
         <div class="alert" style="background-color: #fee2e2; border-color: #ef4444; color: #991b1b;">
-            🚫 Ingen bytur i aften!
+            ⚠️ Ingen morgenmad på hotellet! Vi står op kl. 04:00.
         </div>
 
-        <!-- LØRDAG -->
-        <h3>Lørdag d. 12/9</h3>
+        <h3>Togafgange</h3>
         <ul>
-            <li><span class="time">04:00</span> Vækning! (Ingen morgenmad på hotellet)</li>
-            <li><span class="time">05:10</span> Afgang med toget fra banegården mod Danmark</li>
+            <li><span class="time">05:10</span> Afgang Wien ➔ Ankomst Prag 09:23</li>
+            <li><span class="time">10:31</span> Afgang Prag ➔ Ankomst Kolding 19:44</li>
+            <li><span class="time">19:53</span> Afgang Kolding ➔ Ankomst Aarhus H 21:08</li>
+            <li><span class="time">21:45</span> Afgang Aarhus H ➔ Ankomst Hadsten 22:01</li>
         </ul>
-    </div>
+    </details>
+    <!-- ================= SLUT: HJEMREJSE ================= -->
+
 
     <footer>
         <p>Studietur Program • Opdateret for mobil</p>
