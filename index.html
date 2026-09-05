@@ -454,6 +454,37 @@
     <footer>
         <p>Studietur Program • Opdateret for mobil</p>
     </footer>
+<script>
+    // Tjekker for ny version hver gang siden indlæses/åbnes
+    window.addEventListener('load', () => {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(registration => {
+                // Tjek om der er en opdatering på serveren
+                registration.update();
 
+                registration.onupdatefound = () => {
+                    const installingWorker = registration.installing;
+                    installingWorker.onstatechange = () => {
+                        if (installingWorker.state === 'installed') {
+                            if (navigator.serviceWorker.controller) {
+                                // Ny opdatering fundet! Tving genindlæsning
+                                window.location.reload();
+                            }
+                        }
+                    };
+                };
+            });
+        }
+    });
+
+    // Hvis appen ligger i baggrunden på telefonen og åbnes igen
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            fetch(window.location.href, { cache: 'no-store' }).then(response => {
+                // Henter den nyeste version i baggrunden uden cache
+            });
+        }
+    });
+</script>
 </body>
 </html>
